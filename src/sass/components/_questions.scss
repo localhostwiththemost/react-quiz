@@ -1,0 +1,41 @@
+.QA-container {
+  display: flex;
+  //flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.QA {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.answer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  //align-items: center;
+}
+
+.answer {
+  border: 1px solid #4d5b9e;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: yellow;
+}
+
+.reveal {
+  background-color: lightgreen;
+}
+
+.incorrect {
+  background-color: red;
+}

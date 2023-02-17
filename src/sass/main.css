@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%; /*62.5% of 16px = 10px (We use a % to be more user friendly, 16px is default)
+*/
+  /*Global font-size (Each rem unit is now 10px)*/
+}
+@media only screen and (min-width: 1800px) {
+  html {
+    font-size: 75%;
+  }
+}
+@media only screen and (max-width: 1200px) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (max-width: 900px) {
+  html {
+    font-size: 50%;
+  }
+}
+@media only screen and (max-width: 600px) {
+  html {
+    font-size: 37.5%;
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background-color: #81c8ee;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.select-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 250px;
+}
+
+.QA-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.QA {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.answer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.answer {
+  border: 1px solid #4d5b9e;
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 5px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: yellow;
+}
+
+.reveal {
+  background-color: lightgreen;
+}
+
+.incorrect {
+  background-color: red;
+}
+
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 50px;
+  font-size: 2.5rem;
+}
+
+.start-container {
+  margin: 300px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quiz-container {
+  margin: 100px;
+}
+
+.score-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+/*# sourceMappingURL=main.css.map */
