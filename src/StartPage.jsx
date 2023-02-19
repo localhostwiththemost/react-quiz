@@ -33,7 +33,12 @@ function StartPage({ onDifficultyChange, difficulty }) {
       </div>
 
       <div className="btn-container">
-        <button onClick={goToQuiz}>Start Quiz</button>
+        <button
+          className="btn-main btn-main__white btn-main__animated"
+          onClick={goToQuiz}
+        >
+          Start Quiz
+        </button>
       </div>
     </div>
   );

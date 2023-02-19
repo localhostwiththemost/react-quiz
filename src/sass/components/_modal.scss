@@ -1,0 +1,43 @@
+.modal {
+  background-color: #fff;
+  width: 35rem;
+  height: 22rem;
+  border-radius: $default-border-radius;
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: animate 0.3s;
+}
+
+@keyframes animate {
+  from {
+    -webkit-transform: scale(0.5);
+    transform: translate(-50%, -50%) scale(0.5);
+  }
+  to {
+    -webkit-transform: scale(1);
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.modal > ion-icon {
+  position: fixed;
+  top: 0;
+  right: 0;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.modal > ion-icon:hover {
+  color: red;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}

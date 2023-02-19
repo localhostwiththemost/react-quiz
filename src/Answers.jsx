@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Answers(props) {
+function Answers(props, { onQuizComplete }) {
   const [selected, setSelected] = useState(false);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
 
@@ -27,8 +27,9 @@ function Answers(props) {
         <div
           key={index}
           className={`answer ${selected === answer ? "selected" : ""}
-          ${answer === props.question.correct_answer ? "correct" : ""}
-                      `}
+          ${answer === props.question.correct_answer ? "correct" : ""} ${
+            props.onQuizComplete ? "disabled" : ""
+          }`}
           onClick={() => handleAnswerClick(answer)}
           data-question={props.question.question}
         >

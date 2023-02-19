@@ -19,6 +19,16 @@ function Timer({ duration, onTimeOut, onQuizComplete }) {
   }, [remaining, onTimeOut]);
 
   useEffect(() => {
+    if (!isRunning) {
+      // Remove the "selected" class from all elements that have it
+      const selectedElements = document.querySelectorAll(".selected");
+      selectedElements.forEach((element) => {
+        element.classList.remove("selected");
+      });
+    }
+  }, [isRunning]);
+
+  useEffect(() => {
     if (onQuizComplete) {
       setIsRunning(false);
     } else {

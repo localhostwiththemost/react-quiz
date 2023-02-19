@@ -11,3 +11,102 @@
   align-items: center;
   margin: 20px;
 }
+
+.icon-container ion-icon {
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+.icon-container ion-icon:hover {
+  color: yellow;
+}
+
+// MAIN CTA BUTTON
+.btn-main {
+  &, // Applies to the btn itself as well
+              &:link,
+              &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem; /*15px top/bottom, 40px left/right*/
+    display: inline-block; /*We define it as inline-block so that we can position it or add height/width/padding later. Each button now occupies its own space*/
+    border-radius: 10rem; /*Rounds off buttons*/
+    -webkit-transition: all 0.2s;
+    -o-transition: all 0.2s;
+    transition: all 0.2s; /*All of the btns properties are enabled to be animated, 0.2s duration*/
+    position: relative; /*To help position the effect behind the btn*/
+    font-size: 2rem;
+    // Change for the <button> element
+    border: none;
+    cursor: pointer;
+    color: $color-black;
+    white-space: nowrap;
+  }
+
+  // @include respond(phone) {
+  //   // width < 600
+  //   padding: 1.5rem 2.5rem;
+  // }
+
+  &:hover {
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(
+      -3px
+    ); /*Negative values go up, positive down on the y-axis*/
+    -webkit-box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2); /*0 shadow x-axis, 10px shadow y-axis(down due to positive value), 20px blur, black shadow with 0.2 opacity*/
+
+    &::after {
+      /*When we hover the btn, we want styles for the after psuedo-element*/
+      -webkit-transform: scaleX(1.4) scaleY(1.6);
+      -ms-transform: scaleX(1.4) scaleY(1.6);
+      transform: scaleX(1.4) scaleY(1.6); /*after pseudo-element appears 1.4x its normal size on the x-axis and 1.6X on the y-axis when hovered(Makes effect stand out more)*/
+      opacity: 0; /*We want the effect to fade out on hover*/
+    }
+  }
+
+  &:active,
+  &:focus {
+    //The active state is when the button is activated by the user (typically by clicking)
+    // The focus state is similar to active but its actually when the element is tapped/clicked
+    outline: none; // Removes default blue focus outline around btns when clicked
+    -webkit-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    transform: translateY(-1px); /*Btn bounces up 1px when clicked*/
+    -webkit-box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2);
+    box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /*When the button is active, we want the shadow to look smaller on the y-axis to make it look like the button is closer to the page, further from user; less blur as well*/
+  }
+
+  &__white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+    }
+  }
+
+  &::after {
+    /*We're adding an element that looks exactly like the btn we already have, but we put it behind the button, when hovered out this hidden psuedo element goes back behind the btn*/
+    content: ""; /*You must specify the content property for a pseudo element to appear on the page*/
+    display: inline-block; /*You must also specify the display property, inline-block because we've already defined that our btns are all inline-block in the link/visited rule^*/
+    height: 100%;
+    width: 100%; /*Since this psuedo element is a child element to btn, 100% of the width and height of btn*/
+    border-radius: 10rem; /*To match the btn*/
+    position: absolute; /*We're positioning this element behind the btn*/
+    top: 0;
+    left: 0;
+    z-index: -1; /*Makes certain the effect is behind the button*/
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    transition: all 0.4s; /*To animate an element, we put the transition property in the initial state; in this case, the initial state is the after psuedo element*/
+  }
+
+  &__animated {
+    -webkit-animation: moveInBottom 2.2s ease-out 0.75s;
+    animation: moveInBottom 2.2s ease-out 0.75s; /*0.75s delay*/ //.5s
+    -webkit-animation-fill-mode: backwards;
+    animation-fill-mode: backwards; /*Applys the 0% styles of moveInBottom before the animation starts*/
+  }
+}
