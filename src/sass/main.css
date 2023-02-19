@@ -215,11 +215,6 @@ body {
   background-color: red;
 }
 
-/*Prevents user from clicking on answers when the quiz has ended*/
-.disabled {
-  pointer-events: none;
-}
-
 .timer-container {
   display: flex;
   justify-content: center;

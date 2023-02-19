@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 
-function Answers(props, { onQuizComplete }) {
+function Answers(props) {
   const [selected, setSelected] = useState(false);
   const [shuffledAnswers, setShuffledAnswers] = useState([]);
 
@@ -14,6 +14,10 @@ function Answers(props, { onQuizComplete }) {
   }, [props.question]);
 
   const handleAnswerClick = (answer) => {
+    if (props.onQuizComplete) {
+      return; // don't allow selecting an answer if quiz is complete
+    }
+
     if (selected === answer) {
       setSelected(false);
     } else {
@@ -27,9 +31,7 @@ function Answers(props, { onQuizComplete }) {
         <div
           key={index}
           className={`answer ${selected === answer ? "selected" : ""}
-          ${answer === props.question.correct_answer ? "correct" : ""} ${
-            props.onQuizComplete ? "disabled" : ""
-          }`}
+          ${answer === props.question.correct_answer ? "correct" : ""}`}
           onClick={() => handleAnswerClick(answer)}
           data-question={props.question.question}
         >
