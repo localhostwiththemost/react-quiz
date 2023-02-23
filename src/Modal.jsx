@@ -1,11 +1,11 @@
 import React from "react";
 
-function Modal({ onClose }) {
+function Modal({ onClose, message }) {
   return (
     <div className="modal">
       <ion-icon name="close-outline" onClick={onClose}></ion-icon>
       <div className="modal-content">
-        <h2>Please select an answer for each question</h2>
+        <h2>{message}</h2>
       </div>
     </div>
   );

@@ -72,6 +72,11 @@ function Quiz({ difficulty }) {
     });
     setQuizComplete(true);
     setScore(newScore);
+
+    const currentScore = localStorage.getItem(`lsScore-${difficulty}`);
+    if (newScore > currentScore || !currentScore) {
+      localStorage.setItem(`lsScore-${difficulty}`, newScore);
+    }
   };
 
   const resetQuiz = () => {
@@ -95,7 +100,7 @@ function Quiz({ difficulty }) {
       <div className="quiz-container">
         {showModal && (
           <Modal
-            message="All questions must be answered before checking answers"
+            message="Please choose an answer for every question"
             onClose={() => setShowModal(false)}
           />
         )}
