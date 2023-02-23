@@ -33,8 +33,23 @@ function Quiz({ difficulty }) {
     );
     const data = await res.json();
     setLoading(false);
-    setQuestions(data.results);
-    console.log(data.results);
+
+    const processedQuestions = data.results.map((question) => {
+      const processedQuestion = {
+        ...question,
+        question: question.question
+          .replace(/&quot;/g, "'")
+          .replace(/&#039;/g, "'"),
+        incorrect_answers: question.incorrect_answers.map((answer) =>
+          answer.replace(/&quot;/g, '"')
+        ),
+        correct_answer: question.correct_answer.replace(/&quot;/g, '"'),
+      };
+      return processedQuestion;
+    });
+
+    setQuestions(processedQuestions);
+    //console.log(processedQuestions);
   };
 
   useEffect(() => {
@@ -132,7 +147,7 @@ function Quiz({ difficulty }) {
               <div className="btn-container">
                 {!quizComplete ? (
                   <button
-                    className="btn-main btn-main__white btn-main__animated"
+                    className="btn-main btn-main__green btn-main__animated"
                     onClick={checkAnswers}
                   >
                     Check Answers
@@ -143,7 +158,7 @@ function Quiz({ difficulty }) {
                       You scored {score}/{questions.length} correct answers
                     </h2>
                     <button
-                      className="btn-main btn-main__white btn-main__animated"
+                      className="btn-main btn-main__green btn-main__animated"
                       onClick={resetQuiz}
                     >
                       Play Again

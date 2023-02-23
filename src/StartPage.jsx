@@ -41,7 +41,10 @@ function StartPage({ onDifficultyChange, difficulty }) {
 
   return (
     <div className="start-page">
-      <button className="highscore-btn" onClick={openModal}>
+      <button
+        className="highscore-btn btn-main btn-main__green btn-main__animated"
+        onClick={openModal}
+      >
         High Scores
       </button>
       {showModal ? (
@@ -61,7 +64,9 @@ function StartPage({ onDifficultyChange, difficulty }) {
           <h1>Quizzical</h1>
         </div>
         <div className="select-container">
-          <label htmlFor="difficulty-select">Select Difficulty:</label>
+          <label htmlFor="difficulty-select" className="difficulty-label">
+            Select Difficulty:
+          </label>
           <select
             id="difficulty-select"
             value={difficulty}
@@ -75,7 +80,7 @@ function StartPage({ onDifficultyChange, difficulty }) {
 
         <div className="btn-container">
           <button
-            className="btn-main btn-main__white btn-main__animated"
+            className="btn-main btn-main__green btn-main__animated"
             onClick={goToQuiz}
           >
             Start Quiz

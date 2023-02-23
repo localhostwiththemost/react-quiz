@@ -32,7 +32,7 @@ html {
 
 body {
   font-family: "Inter", sans-serif;
-  background-color: #81c8ee;
+  background-color: #f4f4f4;
 }
 
 .btn-container {
@@ -55,7 +55,7 @@ body {
 }
 
 .icon-container ion-icon:hover {
-  color: yellow;
+  color: #00a98d;
 }
 
 .btn-main, .btn-main:link, .btn-main:visited {
@@ -71,7 +71,7 @@ body {
   font-size: 2rem;
   border: none;
   cursor: pointer;
-  color: #000;
+  color: #fff;
   white-space: nowrap;
 }
 .btn-main:hover {
@@ -96,12 +96,12 @@ body {
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); /*When the button is active, we want the shadow to look smaller on the y-axis to make it look like the button is closer to the page, further from user; less blur as well*/
 }
-.btn-main__white {
-  background-color: #fff;
-  color: #000;
+.btn-main__green {
+  background-color: #00a98d;
+  color: #fff;
 }
-.btn-main__white::after {
-  background-color: #fff;
+.btn-main__green::after {
+  background-color: #00a98d;
 }
 .btn-main::after {
   /*We're adding an element that looks exactly like the btn we already have, but we put it behind the button, when hovered out this hidden psuedo element goes back behind the btn*/
@@ -229,8 +229,8 @@ body {
 
 .highscore-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 25px;
+  right: 25px;
   cursor: pointer;
 }
 
@@ -243,6 +243,12 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 2.5rem;
+  color: #2d2363;
+}
+
+.difficulty-label {
+  font-size: 2rem;
+  color: #0052c4;
 }
 
 .quiz-container {

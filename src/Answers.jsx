@@ -10,7 +10,12 @@ function Answers(props) {
       ...props.question.incorrect_answers,
       props.question.correct_answer,
     ];
-    setShuffledAnswers(answersArr.sort(() => Math.random() - 0.5));
+
+    const processedAnswers = answersArr.map((answer) =>
+      answer.replace(/&quot;/g, "'").replace(/&#039;/g, "'")
+    );
+
+    setShuffledAnswers(processedAnswers.sort(() => Math.random() - 0.5));
   }, [props.question]);
 
   const handleAnswerClick = (answer) => {

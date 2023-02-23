@@ -18,7 +18,7 @@
 }
 
 .icon-container ion-icon:hover {
-  color: yellow;
+  color: $color-emerald-green;
 }
 
 // MAIN CTA BUTTON
@@ -39,7 +39,7 @@
     // Change for the <button> element
     border: none;
     cursor: pointer;
-    color: $color-black;
+    color: $color-white;
     white-space: nowrap;
   }
 
@@ -78,12 +78,12 @@
     box-shadow: 0 0.5rem 1rem rgba($color-black, 0.2); /*When the button is active, we want the shadow to look smaller on the y-axis to make it look like the button is closer to the page, further from user; less blur as well*/
   }
 
-  &__white {
-    background-color: $color-white;
-    color: $color-grey-dark;
+  &__green {
+    background-color: $color-emerald-green;
+    color: $color-white;
 
     &::after {
-      background-color: $color-white;
+      background-color: $color-emerald-green;
     }
   }
 

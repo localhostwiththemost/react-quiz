@@ -11,7 +11,7 @@ const override = css`
 
 function Loader() {
   let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#006bbd");
+  let [color, setColor] = useState("#0052c4");
 
   return (
     <DotLoader
