@@ -31,19 +31,19 @@ function StartPage({ onDifficultyChange, difficulty }) {
     navigate("/quiz");
   };
 
-  const openModal = () => {
-    setShowModal(true);
-  };
-
   const closeModal = () => {
     setShowModal(false);
+  };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
     <div className="start-page">
       <button
         className="highscore-btn btn-main btn-main__green btn-main__animated"
-        onClick={openModal}
+        onClick={toggleModal}
       >
         High Scores
       </button>
@@ -62,11 +62,12 @@ function StartPage({ onDifficultyChange, difficulty }) {
       <div className="start-container">
         <div className="title-container">
           <h1>Quizzical</h1>
+          <h2 className="quiz-description">A computer science trivia app</h2>
         </div>
         <div className="select-container">
-          <label htmlFor="difficulty-select" className="difficulty-label">
+          {/* <label htmlFor="difficulty-select" className="difficulty-label">
             Select Difficulty:
-          </label>
+          </label> */}
           <select
             id="difficulty-select"
             value={difficulty}

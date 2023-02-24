@@ -136,7 +136,7 @@ function Quiz({ difficulty }) {
               {questions.map((question, index) => (
                 <div className="QA-container" key={index}>
                   <div className="QA">
-                    <h2>{question.question}</h2>
+                    <p className="question-text">{question.question}</p>
                     <Answers
                       question={question}
                       onQuizComplete={quizComplete}

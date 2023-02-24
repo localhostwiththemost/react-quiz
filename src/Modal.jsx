@@ -5,7 +5,7 @@ function Modal({ onClose, message }) {
     <div className="modal">
       <ion-icon name="close-outline" onClick={onClose}></ion-icon>
       <div className="modal-content">
-        <h2>{message}</h2>
+        <p className="message-text">{message}</p>
       </div>
     </div>
   );

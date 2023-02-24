@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
   // DEFINES WHAT 1 REM IS
   font-size: 62.5%; /*62.5% of 16px = 10px (We use a % to be more user friendly, 16px is default)
         */
@@ -48,4 +49,5 @@ html {
 body {
   font-family: "Inter", sans-serif;
   background-color: $color-off-white;
+  height: 100%;
 }

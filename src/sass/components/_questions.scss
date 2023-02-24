@@ -12,6 +12,12 @@
   margin-bottom: 20px;
 }
 
+.question-text {
+  color: $color-navy-blue;
+  font-size: 1.8rem;
+  font-weight: 500;
+}
+
 .answer-container {
   display: flex;
   flex-direction: row;
@@ -20,7 +26,7 @@
 }
 
 .answer {
-  border: 1px solid #4d5b9e;
+  border: 1px solid $color-navy-blue;
   border-radius: 8px;
   background-color: #fff;
   padding: 5px;
