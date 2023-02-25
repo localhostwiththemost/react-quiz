@@ -51,13 +51,8 @@ body {
   margin: 20px;
 }
 
-.icon-container ion-icon {
-  font-size: 3rem;
+select {
   cursor: pointer;
-}
-
-.icon-container ion-icon:hover {
-  color: #00a98d;
 }
 
 .btn-main, .btn-main:link, .btn-main:visited {
@@ -135,9 +130,9 @@ body {
 }
 
 .modal {
-  background-color: #fff;
-  width: 35rem;
-  height: 22rem;
+  background-color: #2d2363;
+  width: 40rem;
+  height: 25rem;
   border-radius: 0.3rem;
   position: absolute;
   z-index: 1;
@@ -162,6 +157,7 @@ body {
   top: 0;
   right: 0;
   font-size: 3rem;
+  color: #fff;
   cursor: pointer;
 }
 
@@ -177,8 +173,10 @@ body {
 }
 
 .message-text {
-  font-size: 2.8rem;
-  padding: 10px;
+  font-size: 2.6rem;
+  font-weight: 500;
+  text-align: center;
+  color: #fff;
 }
 
 .QA-container {
@@ -197,7 +195,8 @@ body {
 .question-text {
   color: #2d2363;
   font-size: 1.8rem;
-  font-weight: 500;
+  font-weight: 600;
+  text-align: center;
 }
 
 .answer-container {
@@ -211,6 +210,7 @@ body {
   border-radius: 8px;
   background-color: #fff;
   padding: 5px;
+  font-size: 1.5rem;
   font-weight: 500;
   cursor: pointer;
 }
@@ -231,20 +231,20 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 50px;
+  margin: 25px;
   font-size: 2.5rem;
 }
 
 .countdown {
   color: #0052c4;
   font-size: 2.8rem;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .complete {
   color: #00a98d;
-  font-size: 3rem;
-  font-weight: 600;
+  font-size: 2.8rem;
+  font-weight: 700;
 }
 
 .start-page {
@@ -297,11 +297,35 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  text-align: center;
+}
+
+.icon-container {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.icon-container ion-icon {
+  font-size: 3.5rem;
+  cursor: pointer;
+}
+
+.icon-container ion-icon:hover {
+  color: #00a98d;
+}
+
+.confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 .quiz-container {
-  margin: 100px;
-  position: relative;
+  height: 100vh;
 }
 
 .score-container {
@@ -310,6 +334,11 @@ select {
   justify-content: center;
   align-items: center;
   gap: 25px;
+}
+
+.score-text {
+  font-size: 2.5rem;
+  color: #0052c4;
 }
 
 /*# sourceMappingURL=main.css.map */

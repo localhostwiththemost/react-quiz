@@ -49,11 +49,11 @@ function StartPage({ onDifficultyChange, difficulty }) {
       </button>
       {showModal ? (
         <Modal
-          message={`Easy:${localStorage.getItem(
+          message={`Easy: ${localStorage.getItem(
             "lsScore-easy"
-          )}/5 Medium:${localStorage.getItem(
+          )}/5 Medium: ${localStorage.getItem(
             "lsScore-medium"
-          )}/5 Hard:${localStorage.getItem("lsScore-hard")}/5`}
+          )}/5 Hard: ${localStorage.getItem("lsScore-hard")}/5`}
           onClose={closeModal}
         />
       ) : (
@@ -65,11 +65,8 @@ function StartPage({ onDifficultyChange, difficulty }) {
           <h2 className="quiz-description">A computer science trivia app</h2>
         </div>
         <div className="select-container">
-          {/* <label htmlFor="difficulty-select" className="difficulty-label">
-            Select Difficulty:
-          </label> */}
           <select
-            id="difficulty-select"
+            className="difficulty-select"
             value={difficulty}
             onChange={handleDifficultyChange}
           >

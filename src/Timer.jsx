@@ -51,9 +51,9 @@ function Timer({ duration, onTimeOut, onQuizComplete }) {
   return (
     <>
       {remaining === 0 || !isRunning ? (
-        <p className="complete">Quiz Complete!</p>
+        <h1 className="complete">Quiz Complete!</h1>
       ) : (
-        <p className="countdown">{remaining} seconds remaining</p>
+        <h1 className="countdown">{remaining} seconds remaining</h1>
       )}
     </>
   );

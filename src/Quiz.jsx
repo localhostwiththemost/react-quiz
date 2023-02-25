@@ -5,6 +5,7 @@ import Answers from "./Answers";
 import Loader from "./Loader";
 import Timer from "./Timer";
 import Modal from "./Modal";
+import Confetti from "react-confetti";
 
 function Quiz({ difficulty }) {
   const [questions, setQuestions] = useState([]);
@@ -12,6 +13,7 @@ function Quiz({ difficulty }) {
   const [loading, setLoading] = useState(true);
   const [score, setScore] = useState(0);
   const [showModal, setShowModal] = useState(false);
+  const [perfectScore, setPerfectScore] = useState(false);
 
   const navigate = useNavigate();
 
@@ -34,6 +36,8 @@ function Quiz({ difficulty }) {
     const data = await res.json();
     setLoading(false);
 
+    console.log(data);
+
     const processedQuestions = data.results.map((question) => {
       const processedQuestion = {
         ...question,
@@ -43,7 +47,10 @@ function Quiz({ difficulty }) {
         incorrect_answers: question.incorrect_answers.map((answer) =>
           answer.replace(/&quot;/g, '"')
         ),
-        correct_answer: question.correct_answer.replace(/&quot;/g, '"'),
+        correct_answer: question.correct_answer
+          .replace(/&quot;/g, '"')
+          .replace(/&#039;/g, "'")
+          .replace(/&amp;/g, "&"),
       };
       return processedQuestion;
     });
@@ -72,12 +79,13 @@ function Quiz({ difficulty }) {
       );
       if (selectedCorrect) {
         newScore++;
-        selectedCorrect.classList.remove("selected");
+        //selectedCorrect.classList.remove("selected");
         selectedCorrect.classList.add("reveal");
       } else {
         const correctAnswers = document.querySelectorAll(
           `div.answer.correct[data-question="${question.question}"]`
         );
+
         correctAnswers.forEach((answer) => {
           answer.classList.add("reveal");
         });
@@ -88,6 +96,10 @@ function Quiz({ difficulty }) {
     setQuizComplete(true);
     setScore(newScore);
 
+    if (newScore === 5) {
+      setPerfectScore(true);
+    }
+
     const currentScore = localStorage.getItem(`lsScore-${difficulty}`);
     if (newScore > currentScore || !currentScore) {
       localStorage.setItem(`lsScore-${difficulty}`, newScore);
@@ -97,22 +109,30 @@ function Quiz({ difficulty }) {
   const resetQuiz = () => {
     setQuizComplete(false);
     setScore(0);
+    setPerfectScore(false);
     getQuestions();
   };
 
   return (
     <>
-      <div className="icon-container">
-        <ion-icon
-          name="arrow-back-outline"
-          className="back-icon"
-          onClick={() => {
-            resetQuiz();
-            navigate("/");
-          }}
-        ></ion-icon>
-      </div>
+      {perfectScore ? (
+        <div className="confetti-container">
+          <Confetti />
+        </div>
+      ) : (
+        ""
+      )}
       <div className="quiz-container">
+        <div className="icon-container">
+          <ion-icon
+            name="arrow-back-outline"
+            className="back-icon"
+            onClick={() => {
+              resetQuiz();
+              navigate("/");
+            }}
+          ></ion-icon>
+        </div>
         {showModal && (
           <Modal
             message="Please choose an answer for every question"
@@ -154,7 +174,7 @@ function Quiz({ difficulty }) {
                   </button>
                 ) : (
                   <div className="score-container">
-                    <h2>
+                    <h2 className="score-text">
                       You scored {score}/{questions.length} correct answers
                     </h2>
                     <button
