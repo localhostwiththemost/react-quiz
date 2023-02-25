@@ -79,7 +79,6 @@ function Quiz({ difficulty }) {
       );
       if (selectedCorrect) {
         newScore++;
-        //selectedCorrect.classList.remove("selected");
         selectedCorrect.classList.add("reveal");
       } else {
         const correctAnswers = document.querySelectorAll(
@@ -152,7 +151,7 @@ function Quiz({ difficulty }) {
                 onQuizComplete={quizComplete}
               />
             </div>
-            <div>
+            <div className="quiz">
               {questions.map((question, index) => (
                 <div className="QA-container" key={index}>
                   <div className="QA">
