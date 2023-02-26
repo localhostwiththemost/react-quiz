@@ -1,6 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "./Modal";
+
+const lsDifficulty = localStorage.getItem("quizDifficulty");
+if (lsDifficulty === null || lsDifficulty === undefined) {
+  localStorage.setItem("quizDifficulty", "easy");
+}
 
 const lsScoreEasy = localStorage.getItem("lsScore-easy");
 if (lsScoreEasy === null || lsScoreEasy === undefined) {
@@ -19,13 +24,22 @@ if (lsScoreHard === null || lsScoreHard === undefined) {
 
 function StartPage({ onDifficultyChange, difficulty }) {
   const [showModal, setShowModal] = useState(false);
+  const [selectedDifficulty, setSelectedDifficulty] = useState(difficulty);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    const lsDifficulty = localStorage.getItem("quizDifficulty") || "easy";
+    setSelectedDifficulty(lsDifficulty);
+    onDifficultyChange(lsDifficulty);
+  }, [onDifficultyChange]);
 
   const handleDifficultyChange = (event) => {
     const newDifficulty = event.target.value;
+    setSelectedDifficulty(newDifficulty);
     onDifficultyChange(newDifficulty);
+    localStorage.setItem("quizDifficulty", newDifficulty);
   };
+
+  const navigate = useNavigate();
 
   const goToQuiz = () => {
     navigate("/quiz");

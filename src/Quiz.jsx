@@ -56,7 +56,6 @@ function Quiz({ difficulty }) {
     });
 
     setQuestions(processedQuestions);
-    //console.log(processedQuestions);
   };
 
   useEffect(() => {
