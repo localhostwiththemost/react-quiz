@@ -200,6 +200,16 @@ select {
   color: #fff;
 }
 
+ul {
+  list-style-type: none;
+  white-space: nowrap;
+}
+
+li {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
 .QA-container {
   display: -webkit-box;
   display: -ms-flexbox;

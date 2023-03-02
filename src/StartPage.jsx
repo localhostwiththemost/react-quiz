@@ -63,11 +63,20 @@ function StartPage({ onDifficultyChange, difficulty }) {
       </button>
       {showModal ? (
         <Modal
-          message={`Easy: ${localStorage.getItem(
-            "lsScore-easy"
-          )}/5 Medium: ${localStorage.getItem(
-            "lsScore-medium"
-          )}/5 Hard: ${localStorage.getItem("lsScore-hard")}/5`}
+          message={
+            <ul>
+              <li>
+                <strong>Easy:</strong> {localStorage.getItem("lsScore-easy")}/5
+              </li>
+              <li>
+                <strong>Medium:</strong>{" "}
+                {localStorage.getItem("lsScore-medium")}/5
+              </li>
+              <li>
+                <strong>Hard:</strong> {localStorage.getItem("lsScore-hard")}/5
+              </li>
+            </ul>
+          }
           onClose={closeModal}
         />
       ) : (

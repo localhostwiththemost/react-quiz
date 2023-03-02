@@ -64,3 +64,13 @@
   text-align: center;
   color: #fff;
 }
+
+ul {
+  list-style-type: none;
+  white-space: nowrap;
+}
+
+li {
+  display: block;
+  margin-bottom: 0.5rem;
+}
