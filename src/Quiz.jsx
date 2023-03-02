@@ -115,7 +115,11 @@ function Quiz({ difficulty }) {
     <>
       {perfectScore ? (
         <div className="confetti-container">
-          <Confetti />
+          <Confetti
+            width={window.innerWidth}
+            height={window.innerHeight}
+            style={{ zIndex: 9999 }}
+          />
         </div>
       ) : (
         ""
