@@ -66,14 +66,26 @@ function StartPage({ onDifficultyChange, difficulty }) {
           message={
             <ul>
               <li>
-                <strong>Easy:</strong> {localStorage.getItem("lsScore-easy")}/5
+                <strong>
+                  {localStorage.getItem("lsScore-easy") === "5" ? "🏆 " : ""}
+                  Easy:
+                </strong>{" "}
+                {localStorage.getItem("lsScore-easy")}
+                /5
               </li>
               <li>
-                <strong>Medium:</strong>{" "}
+                <strong>
+                  {localStorage.getItem("lsScore-medium") === "5" ? "🏆 " : ""}
+                  Medium:
+                </strong>{" "}
                 {localStorage.getItem("lsScore-medium")}/5
               </li>
               <li>
-                <strong>Hard:</strong> {localStorage.getItem("lsScore-hard")}/5
+                <strong>
+                  {localStorage.getItem("lsScore-hard") === "5" ? "🏆 " : ""}
+                  Hard:
+                </strong>{" "}
+                {localStorage.getItem("lsScore-hard")}/5
               </li>
             </ul>
           }

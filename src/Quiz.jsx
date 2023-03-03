@@ -36,8 +36,6 @@ function Quiz({ difficulty }) {
     const data = await res.json();
     setLoading(false);
 
-    console.log(data);
-
     const processedQuestions = data.results.map((question) => {
       const processedQuestion = {
         ...question,
