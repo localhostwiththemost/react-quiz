@@ -41,7 +41,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
+  margin: 1.5rem;
 }
 
 .select-container {
@@ -273,7 +273,7 @@ li {
 }
 
 .incorrect {
-  background-color: red;
+  background-color: #fe6862;
 }
 
 .timer-container {
@@ -402,6 +402,11 @@ select option {
     -ms-flex-direction: column;
     flex-direction: column;
     gap: 4rem;
+  }
+}
+@media (max-width: 900px) {
+  .quiz {
+    gap: 2rem;
   }
 }
 
