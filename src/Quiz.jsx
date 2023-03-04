@@ -41,13 +41,21 @@ function Quiz({ difficulty }) {
         ...question,
         question: question.question
           .replace(/&quot;/g, "'")
-          .replace(/&#039;/g, "'"),
+          .replace(/&#039;/g, "'")
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">"),
         incorrect_answers: question.incorrect_answers.map((answer) =>
-          answer.replace(/&quot;/g, '"')
+          answer
+            .replace(/&quot;/g, '"')
+            .replace(/&#039;/g, "'")
+            .replace(/&lt;/g, "<")
+            .replace(/&gt;/g, ">")
         ),
         correct_answer: question.correct_answer
           .replace(/&quot;/g, '"')
           .replace(/&#039;/g, "'")
+          .replace(/&lt;/g, "<")
+          .replace(/&gt;/g, ">")
           .replace(/&amp;/g, "&"),
       };
       return processedQuestion;

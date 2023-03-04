@@ -12,7 +12,12 @@ function Answers(props) {
     ];
 
     const processedAnswers = answersArr.map((answer) =>
-      answer.replace(/&quot;/g, "'").replace(/&#039;/g, "'")
+      answer
+        .replace(/&quot;/g, "'")
+        .replace(/&#039;/g, "'")
+        .replace(/&lt;/g, "<")
+        .replace(/&gt;/g, ">")
+        .replace(/&amp;/g, "&")
     );
 
     setShuffledAnswers(processedAnswers.sort(() => Math.random() - 0.5));
