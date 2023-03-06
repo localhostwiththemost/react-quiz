@@ -63,3 +63,7 @@
 .incorrect {
   background-color: $color-incorrect-red;
 }
+
+.unanswered {
+  text-decoration: line-through;
+}

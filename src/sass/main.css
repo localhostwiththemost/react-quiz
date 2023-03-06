@@ -276,6 +276,10 @@ li {
   background-color: #fe6862;
 }
 
+.unanswered {
+  text-decoration: line-through;
+}
+
 .timer-container {
   display: -webkit-box;
   display: -ms-flexbox;

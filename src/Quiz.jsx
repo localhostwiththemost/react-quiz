@@ -26,6 +26,68 @@ function Quiz({ difficulty }) {
 
   const handleOutOfTime = () => {
     setQuizComplete(true);
+
+    let newScore = 0;
+
+    questions.forEach((question) => {
+      const answers = document.querySelectorAll(
+        `.answer[data-question="${question.question}"]`
+      );
+      const selectedCorrect = document.querySelectorAll(
+        `.answer.selected.correct[data-question="${question.question}"]`
+      );
+      const selectedAnswer = document.querySelector(
+        `.answer.selected[data-question="${question.question}"]`
+      );
+      const questionText = document.querySelectorAll(
+        `.question-text[data-question="${question.question}"]`
+      );
+      const answeredQuestion = document.querySelector(
+        `.answer.answered[data-question="${question.question}"]`
+      );
+
+      answers.forEach((answer) => {
+        answer.classList.add("answered");
+      });
+
+      if (selectedCorrect.length > 0) {
+        selectedCorrect.forEach((correct) => {
+          correct.classList.add("reveal");
+          newScore++;
+        });
+      } else if (!selectedAnswer && !answeredQuestion) {
+        questionText.forEach((question) => {
+          question.classList.add("unanswered");
+        });
+      } else if (selectedAnswer) {
+        const correctAnswers = document.querySelectorAll(
+          `div.answer.correct[data-question="${question.question}"]`
+        );
+        const selectedIncorrect = document.querySelector(
+          `div.answer.selected[data-question="${question.question}"]`
+        );
+
+        correctAnswers.forEach((answer) => {
+          answer.classList.add("reveal");
+        });
+
+        if (selectedIncorrect) {
+          selectedIncorrect.classList.remove("selected");
+          selectedIncorrect.classList.add("incorrect");
+        }
+      }
+    });
+
+    setScore(newScore);
+
+    if (newScore === questions.length) {
+      setPerfectScore(true);
+    }
+
+    const currentScore = localStorage.getItem(`lsScore-${difficulty}`);
+    if (newScore > currentScore || !currentScore) {
+      localStorage.setItem(`lsScore-${difficulty}`, newScore);
+    }
   };
 
   const getQuestions = async () => {
@@ -164,7 +226,12 @@ function Quiz({ difficulty }) {
               {questions.map((question, index) => (
                 <div className="QA-container" key={index}>
                   <div className="QA">
-                    <p className="question-text">{question.question}</p>
+                    <p
+                      className="question-text"
+                      data-question={question.question}
+                    >
+                      {question.question}
+                    </p>
                     <Answers
                       question={question}
                       onQuizComplete={quizComplete}
